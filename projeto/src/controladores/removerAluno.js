@@ -1,6 +1,6 @@
 let bancodedados = require('../bancodedados');
 
-const deletarAluno = async function (req, res) {
+const removerAluno = async function (req, res) {
     const { idAluno } = req.params;
 
     if (!idAluno) return res.status(400).json({ message: "Informar idAluno" });
@@ -16,5 +16,5 @@ const deletarAluno = async function (req, res) {
 };
 
 module.exports = {
-    deletarAluno
+    removerAluno
 };
