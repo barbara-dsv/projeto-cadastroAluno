@@ -1,8 +1,8 @@
 # Projeto Cadastro de Alunos
 
  <p align="left">
-O projeto de cadastro de alunos é um projeto inicial de uma API REST que cadastra alunos no banco de dados para uma organização pessoal,
-   onde guardo informações dos alunos que dou aula particular. 
+O projeto de cadastro de alunos é um projeto inicial de uma API REST que cadastra alunos no banco de dados,
+   onde guarda as principais informações dos alunos para controle. Contém 4 Endpoints que com as funcionalidades: listar, cadastrar, atualizar e remover. 
   </p>
 
   ## :man_mechanic: Linguagens e Ferramentas
@@ -40,4 +40,11 @@ npm run dev
 - GET /alunos - Lista todos os alunos
 - POST /alunos/ - Cadastra um aluno
 - PUT /aluno/:id - Atualiza informações do aluno
-- DELETE /aluno/:id - Remove o cadastro do aluno 
+- DELETE /aluno/:id - Remove o cadastro do aluno
+
+## :technologist: Autor
+<table>
+  <tr>
+    <a href="https://github.com/barbara-dsv"><br /><sub><b>Barbara</b></sub></a><br /></td>
+  </tr>
+</table>
