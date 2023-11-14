@@ -11,8 +11,8 @@ const rotas = express();
 
 rotas.get('/alunos', listarAlunos);
 rotas.post('/alunos', cadastrarAluno);
-rotas.put('/aluno/:idAluno', atualizarAluno);
-rotas.delete('/aluno/:idAluno', removerAluno);
+rotas.put('/aluno/:nome', atualizarAluno);
+rotas.delete('/aluno/:nome', removerAluno);
 
 module.exports = {
     rotas
