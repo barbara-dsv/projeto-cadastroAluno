@@ -39,8 +39,8 @@ npm run dev
 
 - GET /alunos - Lista todos os alunos
 - POST /alunos/ - Cadastra um aluno
-- PUT /aluno/:id - Atualiza informações do aluno
-- DELETE /aluno/:id - Remove o cadastro do aluno
+- PUT /aluno/:nome - Atualiza informações do aluno
+- DELETE /aluno/:nome - Remove o cadastro do aluno
 
 ## :technologist: Autor
 <table>
