@@ -1,7 +1,12 @@
-const bancodedados = require('../bancodedados');
+const pool = require('../conexao');
 
 const listarAlunos = async function (req, res) {
-    return res.status(200).json(bancodedados.alunos);
+    try {
+        const { rows } = await pool.query(`select * from alunos`)
+        return res.json(rows)
+    } catch (error) {
+        return res.status(500).json('Erro interno do servidor')
+    }
 };
 
 module.exports = {

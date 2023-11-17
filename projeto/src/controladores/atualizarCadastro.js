@@ -1,19 +1,32 @@
-const bancodedados = require('../bancodedados');
+const pool = require('../conexao');
 
 const atualizarAluno = async function (req, res) {
-    const { idAluno } = req.params;
-    const { numero, idade, serie } = req.body;
+    const { nome } = req.params;
+    const { numero_responsavel, idade, serie } = req.body;
 
-    const aluno = bancodedados.alunos.find(aluno => aluno.idAluno === Number(idAluno));
-    if (!aluno) return res.status(400).json({ message: "Aluno não existente." });
+    try {
+        const { rows, rowCount } = await pool.query(`select * from alunos where nome = $1`, [nome])
+        if (rowCount < 1) {
+            return res.status(404).json({ mensagem: 'aluno não cadastrado' })
+        }
 
-    if (!numero && !idade && !serie) { return res.status(400).json({ message: "Pelo menos um do(s) campo(s) devem ser enviado(os): numero,idade, serie " }) };
+        if (numero_responsavel !== undefined) {
+            await pool.query(`update alunos set numero_responsavel = $1 where nome = $2`, [numero_responsavel, nome])
+        }
+        if (idade !== undefined) {
+            await pool.query(`update alunos set idade = $1 where nome = $2`, [idade, nome])
+        }
+        if (serie !== undefined) {
+            await pool.query(`update alunos set serie = $1 where nome = $2`, [serie, nome])
+        }
 
-    if (numero) aluno.numero = numero;
-    if (idade) aluno.idade = idade;
-    if (serie) aluno.serie = serie;
+        return res.status(204).send()
 
-    return res.status(200).json({ message: "Aluno atualizado com sucesso!" });
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).json('Erro interno do servidor')
+    }
+
 
 };
 
